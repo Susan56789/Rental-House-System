@@ -1,0 +1,153 @@
+a {
+  text-decoration: none !important;
+  color: white !important;
+}
+a:hover {
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.navbar {
+  background-color: seagreen !important;
+  color: white !important;
+}
+
+span.float-right.summary_icon {
+  font-size: 3rem;
+  position: absolute;
+  right: 1rem;
+  top: 0;
+}
+.imgs {
+  margin: 0.5em;
+  max-width: calc(100%);
+  max-height: calc(100%);
+}
+.imgs img {
+  max-width: calc(100%);
+  max-height: calc(100%);
+  cursor: pointer;
+}
+#imagesCarousel,
+#imagesCarousel .carousel-inner,
+#imagesCarousel .carousel-item {
+  height: 60vh !important;
+  background: black;
+}
+#imagesCarousel .carousel-item.active {
+  display: flex !important;
+}
+#imagesCarousel .carousel-item-next {
+  display: flex !important;
+}
+#imagesCarousel .carousel-item img {
+  margin: auto;
+}
+#imagesCarousel img {
+  width: auto !important;
+  height: auto !important;
+  max-height: calc(100%) !important;
+  max-width: calc(100%) !important;
+}
+
+.modal-dialog.large {
+  width: 80% !important;
+  max-width: unset;
+}
+.modal-dialog.mid-large {
+  width: 50% !important;
+  max-width: unset;
+}
+#viewer_modal .btn-close {
+  position: absolute;
+  z-index: 999999;
+  /*right: -4.5em;*/
+  background: unset;
+  color: white;
+  border: unset;
+  font-size: 27px;
+  top: 0;
+}
+#viewer_modal .modal-dialog {
+  width: 80%;
+  max-width: unset;
+  height: calc(90%);
+  max-height: unset;
+}
+#viewer_modal .modal-content {
+  background: black;
+  border: unset;
+  height: calc(100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#viewer_modal img,
+#viewer_modal video {
+  max-height: calc(100%);
+  max-width: calc(100%);
+}
+
+td {
+  vertical-align: middle !important;
+}
+td p {
+  margin: unset;
+}
+
+main#main {
+  width: 100%;
+  height: calc(100%);
+  background: white;
+}
+#login-right {
+  position: absolute;
+  right: 0;
+  width: 40%;
+  height: calc(100%);
+  background: white;
+  display: flex;
+  align-items: center;
+}
+#login-left {
+  position: absolute;
+  left: 0;
+  width: 60%;
+  height: calc(100%);
+  background: #59b6ec61;
+  display: flex;
+  align-items: center;
+  /*background: url(assets/uploads/blood-cells.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;*/
+}
+#login-right .card {
+  margin: auto;
+  z-index: 1;
+}
+.logo {
+  margin: auto;
+  font-size: 8rem;
+  background: white;
+  padding: 0.5em 0.7em;
+  border-radius: 50% 50%;
+  color: #000000b3;
+  z-index: 10;
+}
+div#login-right::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100%);
+  height: calc(100%);
+  /*background: #000000e0;*/
+}
+
+.logo {
+  margin: auto;
+  font-size: 20px;
+  background: white;
+  padding: 7px 11px;
+  border-radius: 50% 50%;
+  color: #000000b3;
+}
