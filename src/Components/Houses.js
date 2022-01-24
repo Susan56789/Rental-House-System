@@ -56,17 +56,17 @@ const House = () => {
           <div className="col-lg-12">
             <div className="row">
               <div className="col-md-4">
-                <form action="" id="manage-house">
+                <form
+                  id="manage-house"
+                  action="https://rental-house-server.vercel.app/houses"
+                  method="POST"
+                >
                   <div className="card">
                     <div className="card-header">House Form</div>
                     <div className="card-body">
                       <div className="form-group" id="msg"></div>
                       <input type="hidden" name="id" />
-                      <div
-                        className="form-group"
-                        action="https://rental-house-server.vercel.app/houses"
-                        method="POST"
-                      >
+                      <div className="form-group">
                         <label className="control-label">House No</label>
                         <input
                           type="text"
@@ -76,7 +76,7 @@ const House = () => {
                         />
                       </div>
                       <div className="form-group">
-                        <label className="control-label">Category</label>
+                        <label className="control-label">House Type:</label>
                         <select
                           name="category_id"
                           id=""
@@ -91,9 +91,7 @@ const House = () => {
                         </select>
                       </div>
                       <div className="form-group">
-                        <label for="" className="control-label">
-                          Description
-                        </label>
+                        <label className="control-label">Description: </label>
                         <textarea
                           name="description"
                           id=""
@@ -153,7 +151,7 @@ const House = () => {
                               </p>
                               <p>
                                 <small>
-                                  House Type: <b></b>
+                                  House Type: <b>{houses.house_type}</b>
                                 </small>
                               </p>
                               <p>
