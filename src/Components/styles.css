@@ -1,6 +1,11 @@
+body {
+  background-color: ivory;
+}
+
 a {
   text-decoration: none !important;
-  color: white !important;
+
+  font-size: inherit;
 }
 a:hover {
   color: rgba(0, 0, 0, 0.3) !important;
@@ -74,7 +79,6 @@ span.float-right.summary_icon {
   max-height: unset;
 }
 #viewer_modal .modal-content {
-  background: black;
   border: unset;
   height: calc(100%);
   display: flex;
@@ -150,4 +154,10 @@ div#login-right::before {
   padding: 7px 11px;
   border-radius: 50% 50%;
   color: #000000b3;
+}
+
+#details p {
+  margin: unset;
+  padding: unset;
+  line-height: 1.3em;
 }

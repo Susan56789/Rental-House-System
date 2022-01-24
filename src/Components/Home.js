@@ -48,6 +48,109 @@ export default class Home extends Component {
                         </div>
                       </div>
                     </div>
+
+                    <div className="col-md-4 mb-3">
+                      <div className="card border-danger">
+                        <div className="card-body bg-danger">
+                          <div className="card-body text-white">
+                            <span className="float-right summary_icon">
+                              {" "}
+                              <i className="fa fa-file-invoice"></i>
+                            </span>
+                            <h4>
+                              <b>
+                                {/**<?php echo $conn->query("SELECT * FROM houses")->num_rows ?> */}
+                              </b>
+                            </h4>
+                            <p>
+                              <b>Payment Reports</b>
+                            </p>
+                          </div>
+                        </div>
+                        <div className="card-footer">
+                          <div className="row">
+                            <div className="col-lg-12">
+                              <a
+                                href="/Reports"
+                                className="text-primary float-right"
+                              >
+                                View Reports{" "}
+                                <span className="fa fa-angle-right"></span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-md-4 mb-3">
+                      <div className="card border-warning">
+                        <div className="card-body bg-warning">
+                          <div className="card-body text-white">
+                            <span className="float-right summary_icon">
+                              {" "}
+                              <i className="fa fa-user-friends"></i>
+                            </span>
+                            <h4>
+                              <b>
+                                {/**<?php echo $conn->query("SELECT * FROM houses")->num_rows ?> */}
+                              </b>
+                            </h4>
+                            <p>
+                              <b>View All Payments</b>
+                            </p>
+                          </div>
+                        </div>
+                        <div className="card-footer">
+                          <div className="row">
+                            <div className="col-lg-12">
+                              <a
+                                href="/AllPayments"
+                                className="text-primary float-right"
+                              >
+                                View Payments{" "}
+                                <span className="fa fa-angle-right"></span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-md-4 mb-3">
+                      <div className="card border-success">
+                        <div className="card-body bg-success">
+                          <div className="card-body text-white">
+                            <span className="float-right summary_icon">
+                              {" "}
+                              <i className="fa fa-user-friends"></i>
+                            </span>
+                            <h4>
+                              <b>
+                                {/**<?php echo $conn->query("SELECT * FROM houses")->num_rows ?> */}
+                              </b>
+                            </h4>
+                            <p>
+                              <b>Total Users</b>
+                            </p>
+                          </div>
+                        </div>
+                        <div className="card-footer">
+                          <div className="row">
+                            <div className="col-lg-12">
+                              <a
+                                href="/Users"
+                                className="text-primary float-right"
+                              >
+                                View Users{" "}
+                                <span className="fa fa-angle-right"></span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     <div className="col-md-4 mb-3">
                       <div className="card border-warning">
                         <div className="card-body bg-warning">

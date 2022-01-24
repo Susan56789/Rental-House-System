@@ -62,16 +62,11 @@ export default class Houses extends Component {
                     <div className="card-footer">
                       <div className="row">
                         <div className="col-md-12">
-                          <button className="btn btn-sm btn-primary col-sm-3 offset-md-3">
-                            {" "}
-                            Save
+                          <button className="btn btn-sm btn-primary col-sm-3 offset-md-3 m-3">
+                            Save{" "}
                           </button>
-                          <button
-                            className="btn btn-sm btn-default col-sm-3"
-                            type="reset"
-                          >
-                            {" "}
-                            Cancel
+                          <button className="btn btn-sm btn-primary col-sm-3">
+                            <a href="/Home">Cancel</a>
                           </button>
                         </div>
                       </div>
@@ -119,20 +114,20 @@ export default class Houses extends Component {
                           </td>
                           <td className="text-center">
                             <button
-                              className="btn btn-sm btn-primary edit_house"
+                              className="btn btn-sm btn-primary edit_house m-3"
                               type="button"
-                              data-id="<?php echo $row['id'] ?>"
-                              data-house_no="<?php echo $row['house_no'] ?>"
-                              data-description="<?php echo $row['description'] ?>"
-                              data-category_id="<?php echo $row['category_id'] ?>"
-                              data-price="<?php echo $row['price'] ?>"
+                              data-id=""
+                              data-house_no=""
+                              data-description=""
+                              data-category_id=""
+                              data-price=""
                             >
                               Edit
                             </button>
                             <button
-                              className="btn btn-sm btn-danger delete_house"
+                              className="btn btn-sm btn-danger delete_house m-3"
                               type="button"
-                              data-id="<?php echo $row['id'] ?>"
+                              data-id=""
                             >
                               Delete
                             </button>

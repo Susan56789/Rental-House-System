@@ -1,57 +1,51 @@
 import React, { Component } from "react";
-import "./styles.css";
+import "./Login.css";
 
 export default class Login extends Component {
   render() {
     return (
-      <>
-        <main id="main" className=" bg-light">
-          <div className="w-100">
-            <h4 className="text-white text-center">
-              <b>{/**<?php echo $_SESSION['system']['name'] ?> */}</b>
-            </h4>
-            <br />
-            <br />
-            <div className="card col-md-8">
-              <div className="card-body">
-                <form id="login-form">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-3 col-md-2"></div>
+          <div className="col-lg-6 col-md-8 login-box">
+            <div className="col-lg-12 login-key">
+              <i className="fa fa-key" aria-hidden="true"></i>
+            </div>
+            <div className="col-lg-12 login-title">ADMIN PANEL</div>
+
+            <div className="col-lg-12 login-form">
+              <div className="col-lg-12 login-form">
+                <form>
                   <div className="form-group">
-                    <label for="username" className="control-label">
-                      Username
-                    </label>
-                    <input
-                      type="text"
-                      id="username"
-                      name="username"
-                      className="form-control"
-                    />
+                    <label className="form-control-label">EMAIL</label>
+                    <input type="text" className="form-control" />
                   </div>
                   <div className="form-group">
-                    <label for="password" className="control-label">
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      id="password"
-                      name="password"
-                      className="form-control"
-                    />
+                    <label className="form-control-label">PASSWORD</label>
+                    <input type="password" className="form-control" />
                   </div>
-                  <center>
-                    <button className="btn-sm btn-block btn-wave col-md-4 btn-primary">
-                      Login
-                    </button>
-                  </center>
+
+                  <div className="col-lg-12 loginbttm">
+                    <div className="col-lg-6 login-btm login-text"></div>
+                    <div className="col-lg-6 login-btm login-button">
+                      <button type="submit" className="btn btn-outline-primary">
+                        LOGIN
+                      </button>
+                    </div>
+                    <div className="col-lg-6 login-btm login-button"></div>
+                    <div className="col-lg-6 login-btm login-button">
+                      <button className="btn btn-outline-primary">
+                        <a href="/">BACK</a>
+                      </button>
+                    </div>
+                  </div>
                 </form>
               </div>
             </div>
+            <div className="col-lg-3 col-md-2"></div>
           </div>
-        </main>
-
-        <a href="#top" className="back-to-top">
-          <i className="icofont-simple-up"></i>
-        </a>
-      </>
+        </div>
+      </div>
     );
   }
 }

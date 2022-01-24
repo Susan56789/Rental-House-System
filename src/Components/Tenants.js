@@ -67,23 +67,23 @@ export default class Tenants extends Component {
                           </td>
                           <td className="text-center">
                             <button
-                              className="btn btn-sm btn-outline-primary view_payment"
+                              className="btn btn-sm btn-outline-primary view_tenant m-3"
                               type="button"
-                              data-id="<?php echo $row['id'] ?>"
+                              data-id=""
                             >
                               View
                             </button>
                             <button
-                              className="btn btn-sm btn-outline-primary edit_tenant"
+                              className="btn btn-sm btn-outline-primary edit_tenant m-3"
                               type="button"
-                              data-id="<?php echo $row['id'] ?>"
+                              data-id=""
                             >
                               Edit
                             </button>
                             <button
-                              className="btn btn-sm btn-outline-danger delete_tenant"
+                              className="btn btn-sm btn-outline-danger delete_tenant m-3"
                               type="button"
-                              data-id="<?php echo $row['id'] ?>"
+                              data-id=""
                             >
                               Delete
                             </button>

@@ -23,6 +23,9 @@ export default class Invoices extends Component {
                       >
                         <i className="fa fa-plus"></i> New Entry
                       </a>
+                      <button type="button" className="btn btn-primary m-3">
+                        <a href="/Home">Back</a>
+                      </button>
                     </span>
                   </div>
                   <div className="card-body">
@@ -61,16 +64,16 @@ export default class Invoices extends Component {
                           </td>
                           <td className="text-center">
                             <button
-                              className="btn btn-sm btn-outline-primary edit_invoice"
+                              className="btn btn-sm btn-outline-primary edit_invoice m-3"
                               type="button"
-                              data-id="<?php echo $row['id'] ?>"
+                              data-id=""
                             >
                               Edit
                             </button>
                             <button
-                              className="btn btn-sm btn-outline-danger delete_invoice"
+                              className="btn btn-sm btn-outline-danger delete_invoice m-3"
                               type="button"
-                              data-id="<?php echo $row['id'] ?>"
+                              data-id=""
                             >
                               Delete
                             </button>
