@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./header.css";
-import image from "../assets/images/building2.jpg";
+import image from "../images/building2.jpg";
 
 export default class Header extends Component {
   render() {
