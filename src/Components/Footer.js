@@ -5,7 +5,7 @@ export default class Footer extends Component {
   render() {
     return (
       <div>
-        <div class="footer-basic">
+        <div className="footer-basic">
           <footer>
             <div className="social">
               <a href="##">

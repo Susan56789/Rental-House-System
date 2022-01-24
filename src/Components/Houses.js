@@ -1,8 +1,55 @@
-import React, { Component } from "react";
+/* eslint-disable no-lone-blocks */
+import React, { useState, useEffect } from "react";
 import "./styles.css";
 
-export default class Houses extends Component {
-  render() {
+const House = () => {
+  const [house, setHouse] = useState([]);
+  const [category, SetCategory] = useState([]);
+
+  const getHouses = async () => {
+    const url = "https://rental-house-server.vercel.app/houses";
+
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        mode: "cors",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          return data;
+        });
+      setHouse(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getCateories = async () => {
+    const url = "https://rental-house-server.vercel.app/categories";
+
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        mode: "cors",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          return data;
+        });
+      SetCategory(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    getHouses();
+    getCateories();
+  }, []);
+
+  {
     return (
       <>
         <div className="container-fluid">
@@ -15,7 +62,11 @@ export default class Houses extends Component {
                     <div className="card-body">
                       <div className="form-group" id="msg"></div>
                       <input type="hidden" name="id" />
-                      <div className="form-group">
+                      <div
+                        className="form-group"
+                        action="https://rental-house-server.vercel.app/houses"
+                        method="POST"
+                      >
                         <label className="control-label">House No</label>
                         <input
                           type="text"
@@ -32,7 +83,11 @@ export default class Houses extends Component {
                           className="custom-select"
                           required
                         >
-                          {/**Select from database */}
+                          {category.map((categories) => (
+                            <option key={Math.floor(Math.random() * 1000)}>
+                              {categories.name}
+                            </option>
+                          ))}
                         </select>
                       </div>
                       <div className="form-group">
@@ -90,28 +145,29 @@ export default class Houses extends Component {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td className="text-center"></td>
-                          <td className="">
-                            <p>
-                              House #: <b></b>
-                            </p>
-                            <p>
-                              <small>
-                                House Type: <b></b>
-                              </small>
-                            </p>
-                            <p>
-                              <small>
-                                Description: <b></b>
-                              </small>
-                            </p>
-                            <p>
-                              <small>
-                                Price: <b></b>
-                              </small>
-                            </p>
-                          </td>
+                        <tr className="text-center grid">
+                          {house.map((houses) => (
+                            <td className="" key={Math.random() * 10000}>
+                              <p>
+                                House #: <b>{houses.id}</b>
+                              </p>
+                              <p>
+                                <small>
+                                  House Type: <b></b>
+                                </small>
+                              </p>
+                              <p>
+                                <small>
+                                  Description: <b>{houses.description}</b>
+                                </small>
+                              </p>
+                              <p>
+                                <small>
+                                  Price: <b>{houses.price}</b>
+                                </small>
+                              </p>
+                            </td>
+                          ))}
                           <td className="text-center">
                             <button
                               className="btn btn-sm btn-primary edit_house m-3"
@@ -144,4 +200,5 @@ export default class Houses extends Component {
       </>
     );
   }
-}
+};
+export default House;
