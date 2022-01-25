@@ -136,15 +136,14 @@ const House = () => {
                   <div className="card-body">
                     <table className="table table-bordered table-hover">
                       <thead>
-                        <tr>
-                          <th className="text-center">#</th>
+                        <tr className="col">
                           <th className="text-center">House</th>
                           <th className="text-center">Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr className="text-center grid">
-                          {house.map((houses) => (
+                        {house.map((houses) => (
+                          <tr className="col">
                             <td className="" key={Math.random() * 10000}>
                               <p>
                                 House #: <b>{houses.id}</b>
@@ -165,28 +164,28 @@ const House = () => {
                                 </small>
                               </p>
                             </td>
-                          ))}
-                          <td className="text-center">
-                            <button
-                              className="btn btn-sm btn-primary edit_house m-3"
-                              type="button"
-                              data-id=""
-                              data-house_no=""
-                              data-description=""
-                              data-category_id=""
-                              data-price=""
-                            >
-                              Edit
-                            </button>
-                            <button
-                              className="btn btn-sm btn-danger delete_house m-3"
-                              type="button"
-                              data-id=""
-                            >
-                              Delete
-                            </button>
-                          </td>
-                        </tr>
+                            <td className="text-center">
+                              <button
+                                className="btn btn-sm btn-primary edit_house m-3"
+                                type="button"
+                                data-id=""
+                                data-house_no=""
+                                data-description=""
+                                data-category_id=""
+                                data-price=""
+                              >
+                                Edit
+                              </button>
+                              <button
+                                className="btn btn-sm btn-danger delete_house m-3"
+                                type="button"
+                                data-id=""
+                              >
+                                Delete
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                   </div>

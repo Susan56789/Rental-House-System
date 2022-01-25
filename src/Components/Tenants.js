@@ -50,59 +50,61 @@ const Tenants = () => {
                   </span>
                 </div>
                 <div className="card-body">
-                  <table className="table table-condensed table-bordered table-hover">
+                  <table className="table table-bordered ">
                     <thead>
-                      <tr>
-                        <th className="text-center">#</th>
-                        <th className="">First Name</th>
-                        <th className="">Last Name</th>
-                        <th className="">House ID</th>
-                        <th className="">Monthly Rate</th>
-                        <th className="">Outstanding Balance</th>
-                        <th className="">Last Payment</th>
-                        <th className="">Date In</th>
-
-                        <th className="text-center">Action</th>
+                      <tr className="col">
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>House ID</th>
+                        <th>Monthly Rate</th>
+                        <th>Outstanding Balance</th>
+                        <th>Last Payment</th>
+                        <th>Date In</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
+
                     <tbody>
-                      <tr className="text-center">
-                        {tenant.map((tenants) => (
-                          <>
-                            <td>{tenants.id}</td>
-                            <td>{tenants.firstname}</td>
-                            <td>{tenants.lastname}</td>
-                            <td>{tenants.house_id}</td>
-                            <td>null</td>
-                            <td>null</td>
-                            <td>null</td>
-                            <td>{tenants.date_in}</td>
-                          </>
-                        ))}
-                        <td className="text-center">
-                          <button
-                            className="btn btn-sm btn-outline-primary view_tenant m-3"
-                            type="button"
-                            data-id=""
-                          >
-                            View
-                          </button>
-                          <button
-                            className="btn btn-sm btn-outline-primary edit_tenant m-3"
-                            type="button"
-                            data-id=""
-                          >
-                            Edit
-                          </button>
-                          <button
-                            className="btn btn-sm btn-outline-danger delete_tenant m-3"
-                            type="button"
-                            data-id=""
-                          >
-                            Delete
-                          </button>
-                        </td>
-                      </tr>
+                      {tenant.map((tenants) => (
+                        <tr className="col">
+                          <td>{tenants.id}</td>
+                          <td>{tenants.firstname}</td>
+                          <td>{tenants.lastname}</td>
+                          <td>{tenants.email}</td>
+                          <td>{tenants.contact}</td>
+                          <td>{tenants.house_id}</td>
+                          <td>{tenants.monthly_rate}</td>
+                          <td>{tenants.outstanding_balance}l</td>
+                          <td>{tenants.last_payment}</td>
+                          <td>{tenants.date_in}</td>
+                          <td className="text-center">
+                            <button
+                              className="btn btn-sm btn-outline-primary view_tenant m-3"
+                              type="button"
+                              data-id=""
+                            >
+                              View
+                            </button>
+                            <button
+                              className="btn btn-sm btn-outline-primary edit_tenant m-3"
+                              type="button"
+                              data-id=""
+                            >
+                              Edit
+                            </button>
+                            <button
+                              className="btn btn-sm btn-outline-danger delete_tenant m-3"
+                              type="button"
+                              data-id=""
+                            >
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>

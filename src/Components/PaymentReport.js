@@ -18,7 +18,6 @@ export default class PaymentReport extends Component {
                         type="month"
                         name="month_of"
                         class="from-control col-md-4"
-                        value="<month of"
                       />
                       <button class="btn btn-sm btn-block btn-primary col-md-2 ml-1">
                         Filter

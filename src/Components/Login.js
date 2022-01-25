@@ -28,13 +28,16 @@ export default class Login extends Component {
                   <div className="col-lg-12 loginbttm">
                     <div className="col-lg-6 login-btm login-text"></div>
                     <div className="col-lg-6 login-btm login-button">
-                      <button type="submit" className="btn btn-outline-primary">
+                      <button
+                        type="submit"
+                        className="btn btn-outline-primary m-3"
+                      >
                         LOGIN
                       </button>
                     </div>
                     <div className="col-lg-6 login-btm login-button"></div>
                     <div className="col-lg-6 login-btm login-button">
-                      <button className="btn btn-outline-primary">
+                      <button className="btn btn-outline-primary m-3">
                         <a href="/">BACK</a>
                       </button>
                     </div>
