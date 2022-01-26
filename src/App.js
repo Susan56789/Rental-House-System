@@ -16,33 +16,44 @@ import Users from "./Components/Users";
 import ViewPayments from "./Components/View_Payments";
 import Footer from "./Components/Footer";
 
+import PublicRoute from "./Components/PublicRoute";
+import PrivateRoute from "./Components/PrivateRoute";
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route exact path="/Reports" component={Reports} />
+          <PrivateRoute exact path="/Reports" component={Reports} />
 
-          <Route exact path="/PaymentReports" component={PaymentReport} />
+          <PrivateRoute
+            exact
+            path="/PaymentReports"
+            component={PaymentReport}
+          />
 
-          <Route exact path="/AllPayments" component={ViewPayments} />
+          <PrivateRoute exact path="/AllPayments" component={ViewPayments} />
 
-          <Route exact path="/Users" component={Users} />
+          <PrivateRoute exact path="/Users" component={Users} />
 
-          <Route exact path="/BalanceReports" component={BalanceReports} />
+          <PrivateRoute
+            exact
+            path="/BalanceReports"
+            component={BalanceReports}
+          />
 
-          <Route exact path="/Invoices" component={Invoices} />
+          <PrivateRoute exact path="/Invoices" component={Invoices} />
 
-          <Route exact path="/Tenants" component={Tenants} />
+          <PrivateRoute exact path="/Tenants" component={Tenants} />
 
-          <Route exact path="/Houses" component={Houses} />
+          <PrivateRoute exact path="/Houses" component={Houses} />
 
-          <Route exact path="/Settings" component={Settings} />
-          <Route exact path="/Home" component={Home} />
+          <PrivateRoute exact path="/Settings" component={Settings} />
+          <PrivateRoute exact path="/Home" component={Home} />
 
           <Route exact path="/" component={Header} />
 
-          <Route exact path="/Login" component={Login} />
+          <PublicRoute exact path="/Login" component={Login} />
 
           <Route exact path="/SignUp" component={SignUp} />
         </Switch>

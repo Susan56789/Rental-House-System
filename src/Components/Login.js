@@ -21,9 +21,16 @@ const Login = (props) => {
       })
       .then((response) => {
         setLoading(false);
-        setUserSession(response.data.token, response.data.username);
+        setUserSession(
+          response.data.token,
+          response.data.user.name,
+          response.data.user.username
+        );
         console.log("response >>>", response);
         props.history.push("/Home");
+      })
+      .then((res) => {
+        JSON.stringify(res);
       })
       .catch((error) => {
         setLoading(false);
@@ -48,7 +55,7 @@ const Login = (props) => {
 
           <div className="col-lg-12 login-form">
             <div className="col-lg-12 login-form">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} id="user">
                 <div className="form-group">
                   <label className="form-control-label">USERNAME</label>
                   <input
