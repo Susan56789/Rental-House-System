@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from "react";
+
 import "./App.css";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 
@@ -18,8 +20,46 @@ import Footer from "./Components/Footer";
 
 import PublicRoute from "./Components/PublicRoute";
 import PrivateRoute from "./Components/PrivateRoute";
+import {
+  getToken,
+  removeUserSession,
+  setUserSession,
+} from "./Components/Common";
+import axios from "axios";
 
 function App() {
+  const [authLoading, setAuthLoading] = useState(true);
+
+  const AuthStatus = () => {
+    const token = getToken();
+    if (!token) {
+      return;
+    }
+    axios
+      .get(`https://rental-house-server.vercel.app/verifyToken?token${token}`)
+      .then((response) => {
+        setAuthLoading(false);
+        setUserSession(
+          response.data.token,
+          response.data.user.name,
+          response.data.user.username
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+        setAuthLoading(false);
+        removeUserSession();
+      });
+  };
+
+  useEffect(() => {
+    AuthStatus();
+  }, []);
+
+  if (authLoading && getToken()) {
+    return <div className="content">Checking Authentication ...</div>;
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
