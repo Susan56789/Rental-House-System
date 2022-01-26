@@ -14,7 +14,7 @@ const Login = (props) => {
     e.preventDefault();
     setError(null);
     setLoading(true);
-    axios
+    await axios
       .post("https://rental-house-server.vercel.app/user/login", {
         username: username,
         password: password,
