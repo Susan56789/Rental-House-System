@@ -26,7 +26,7 @@ const Login = (props) => {
           response.data.user.name,
           response.data.user.username
         );
-        console.log("response >>>", response);
+        //console.log("response >>>", response);
         props.history.push("/Home");
       })
       .then((res) => {
