@@ -27,8 +27,7 @@ import {
 } from "./Components/Common";
 import axios from "axios";
 
-function App(e) {
-  e.preventDefault();
+function App() {
   const [authLoading, setAuthLoading] = useState(true);
 
   const AuthStatus = () => {
