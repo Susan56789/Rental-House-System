@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
 
 import Home from "./Components/Home";
 import Invoices from "./Components/Invoices";
@@ -20,33 +20,32 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route exact path="/Reports" element={<Reports />} />
+        <Switch>
+          <Route exact path="/Reports" component={Reports} />
 
-          <Route exact path="/PaymentReports" element={<PaymentReport />} />
+          <Route exact path="/PaymentReports" component={PaymentReport} />
 
-          <Route exact path="/AllPayments" element={<ViewPayments />} />
+          <Route exact path="/AllPayments" component={ViewPayments} />
 
-          <Route exact path="/Users" element={<Users />} />
+          <Route exact path="/Users" component={Users} />
 
-          <Route exact path="/BalanceReports" element={<BalanceReports />} />
+          <Route exact path="/BalanceReports" component={BalanceReports} />
 
-          <Route exact path="/" element={<Header />} />
+          <Route exact path="/Invoices" component={Invoices} />
 
-          <Route exact path="/Login" element={<Login />} />
+          <Route exact path="/Tenants" component={Tenants} />
 
-          <Route exact path="/SignUp" element={<SignUp />} />
+          <Route exact path="/Houses" component={Houses} />
 
-          <Route exact path="/Home" element={<Home />} />
+          <Route exact path="/Settings" component={Settings} />
+          <Route exact path="/Home" component={Home} />
 
-          <Route exact path="/Invoices" element={<Invoices />} />
+          <Route exact path="/" component={Header} />
 
-          <Route exact path="/Tenants" element={<Tenants />} />
+          <Route exact path="/Login" component={Login} />
 
-          <Route exact path="/Houses" element={<Houses />} />
-
-          <Route exact path="/Settings" element={<Settings />} />
-        </Routes>
+          <Route exact path="/SignUp" component={SignUp} />
+        </Switch>
       </BrowserRouter>
 
       <Footer />

@@ -1,22 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 import "./styles.css";
+import auth from "./Auth";
 
-export default class Navbar extends Component {
-  render() {
-    return (
-      <>
-        <nav
-          className="navbar navbar-light fixed-top bg-dark"
-          style={{ padding: 0, display: "flex" }}
-        >
-          <a className="nabvar-item" href="/Settings" id="manage_my_account">
-            <i className="fa fa-cog"></i> Manage Account
-          </a>
-          <a className="navbar-item" href="/">
-            <i className="fa fa-power-off"></i> Logout
-          </a>
-        </nav>
-      </>
-    );
-  }
-}
+const Navbar = () => {
+  return (
+    <>
+      <nav
+        className="navbar navbar-light fixed-top bg-dark"
+        style={{ padding: 0, display: "flex" }}
+      >
+        <a className="nabvar-item" href="/Settings" id="manage_my_account">
+          <i className="fa fa-cog"></i> Manage Account
+        </a>
+        <a href="/" className="navbar-item">
+          <i className="fa fa-power-off"></i> Logout
+        </a>
+      </nav>
+    </>
+  );
+};
+
+export default Navbar;
