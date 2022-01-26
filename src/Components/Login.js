@@ -1,49 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Login.css";
-import auth from "./Auth";
+import axios from "axios";
 import { withRouter } from "react-router";
+import { setUserSession } from "./Common";
 
 const Login = (props) => {
-  const [email, setEmail] = useState();
+  const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  const [users, setUsers] = useState([]);
-
-  async function loginUser(credentials) {
-    return fetch("https://rental-house-server.vercel.app/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials),
-    });
-  }
-
-  async function checkUser() {
-    const user = await fetch("https://rental-house-server.vercel.app/users", {
-      method: "GET",
-      mode: "cors",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
-    setUsers(user);
-  }
-
-  useEffect(() => {
-    checkUser();
-  }, []);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    users.map((req) => {
-      if (req.emai && req.password === email && password) {
-        return loginUser({ email, password });
-      } else {
-        return "User does not Exist. Sign Up !";
-      }
-    });
+    setError(null);
+    setLoading(true);
+    axios
+      .post("https://rental-house-server.vercel.app/user/login", {
+        username: username,
+        password: password,
+      })
+      .then((response) => {
+        setLoading(false);
+        setUserSession(response.data.token, response.data.username);
+        console.log("response >>>", response);
+        props.history.push("/Home");
+      })
+      .catch((error) => {
+        setLoading(false);
+        if (error.response.status === 400 || error.response.status === 401) {
+          setError(error.response.data.message);
+        } else {
+          setError("Something is wrong. Please try again later !");
+        }
+        console.error("Error >>>", error);
+      });
   };
 
   return (
@@ -60,12 +50,11 @@ const Login = (props) => {
             <div className="col-lg-12 login-form">
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <label className="form-control-label">EMAIL</label>
+                  <label className="form-control-label">USERNAME</label>
                   <input
                     type="text"
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setUsername(e.target.value)}
                     className="form-control"
-                    required
                   />
                 </div>
                 <div className="form-group">
@@ -74,29 +63,31 @@ const Login = (props) => {
                     type="password"
                     onChange={(e) => setPassword(e.target.value)}
                     className="form-control"
-                    required
                   />
                 </div>
 
                 <div className="col-lg-12 loginbttm">
                   <div className="col-lg-6 login-btm login-text"></div>
                   <div className="col-lg-6 login-btm login-button">
-                    <button
-                      onClick={() => {
-                        auth.login(() => {
-                          props.history.push("/Home");
-                        });
-                      }}
+                    {error && (
+                      <>
+                        <small style={{ color: "red" }}>{error}</small>
+                        <br />
+                      </>
+                    )}
+                    <br />
+                    <input
                       type="button"
+                      value={loading ? "Loading..." : "LOGIN"}
+                      onClick={handleSubmit}
+                      disabled={loading}
                       className="btn btn-outline-primary m-3"
-                    >
-                      LOGIN
-                    </button>
+                    />
                   </div>
                   <div className="col-lg-6 login-btm login-button"></div>
                   <div className="col-lg-6 login-btm login-button">
                     <button className="btn btn-outline-primary m-3">
-                      <a href="/">BACK</a>
+                      <a href="/">HOME</a>
                     </button>
                   </div>
                 </div>

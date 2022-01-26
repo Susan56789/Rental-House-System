@@ -1,23 +1,29 @@
 import React from "react";
 import "./styles.css";
-import auth from "./Auth";
+import { withRouter } from "react-router";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const handleLogout = () => {
+    props.history.push("/Login");
+  };
   return (
     <>
       <nav
         className="navbar navbar-light fixed-top bg-dark"
         style={{ padding: 0, display: "flex" }}
       >
-        <a className="nabvar-item" href="/Settings" id="manage_my_account">
-          <i className="fa fa-cog"></i> Manage Account
-        </a>
-        <a href="/" className="navbar-item">
+        <button className="btn btn-light">
+          <a className="nabvar-item" href="/Settings" id="manage_my_account">
+            <i className="fa fa-cog"></i> Manage Account
+          </a>
+        </button>
+
+        <button onClick={handleLogout} className="btn btn-light navbar-item">
           <i className="fa fa-power-off"></i> Logout
-        </a>
+        </button>
       </nav>
     </>
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);
