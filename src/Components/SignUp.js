@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "./signup.css";
-import FormData from "form-data";
+
 import { withRouter } from "react-router";
+import { setUserSession } from "./Common";
 
 const SignUp = (props) => {
   const [email, setEmail] = useState();
@@ -19,27 +20,26 @@ const SignUp = (props) => {
     setError(null);
     setLoading(true);
 
-    const form_data = new FormData();
-    form_data.append("name", { onchange });
-
-    let data = {
-      id: id,
-      email: email,
-      name: name,
-      username: username,
-      password: password,
-    };
-
     await axios
-      .post("https://rental-house-server.vercel.app/users", form_data)
+      .post("https://rental-house-server.vercel.app/users", {
+        id: id,
+        name: name,
+        username: username,
+        email: email,
+        password: password,
+      })
       .then((response) => {
         setLoading(false);
-
-        response.data();
+        return response;
       })
       .then((result) => {
+        setUserSession(result.data.token);
+        setUserSession(result.data.name);
+        setUserSession(result.data.username);
         JSON.stringify(result);
+
         console.log("response >>>", result);
+        console.log(result.data);
       })
       .catch((error) => {
         setLoading(false);
