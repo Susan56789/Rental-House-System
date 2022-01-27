@@ -15,7 +15,7 @@ const Login = (props) => {
     setError(null);
     setLoading(true);
     await axios
-      .post("https://rental-house-server.vercel.app/user/login", {
+      .post("http://rental-house-server.vercel.app/user/login", {
         username: username,
         password: password,
       })
@@ -84,11 +84,11 @@ const Login = (props) => {
                     )}
                     <br />
                     <input
-                      type="button"
+                      type="submit"
                       value={loading ? "Loading..." : "LOGIN"}
-                      onClick={handleSubmit}
+                      onSubmit={handleSubmit}
                       disabled={loading}
-                      className="btn btn-outline-primary m-3"
+                      className="btn btn-outline-primary"
                     />
                   </div>
                   <div className="col-lg-6 login-btm login-button"></div>
