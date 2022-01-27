@@ -27,7 +27,7 @@ import {
 } from "./Components/Common";
 import axios from "axios";
 
-function App() {
+const App = () => {
   const [authLoading, setAuthLoading] = useState(true);
 
   const AuthStatus = () => {
@@ -102,6 +102,6 @@ function App() {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;
