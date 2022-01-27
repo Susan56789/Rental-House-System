@@ -1,40 +1,53 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "./signup.css";
+import FormData from "form-data";
+import { withRouter } from "react-router";
 
-const SignUp = () => {
+const SignUp = (props) => {
   const [email, setEmail] = useState();
   const [id, setId] = useState();
   const [name, setName] = useState();
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  const [confirmpassword, setConfirmPassword] = useState();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
+    alert("Registration Successful! Proceed to Log in.");
     e.preventDefault();
-    axios
-      .post("https://rental-house-server.vercel.app/users", {
-        id: id,
-        email: email,
-        name: name,
-        username: username,
-        password: password,
-      })
+    setError(null);
+    setLoading(true);
+
+    const form_data = new FormData();
+    form_data.append("name", { onchange });
+
+    let data = {
+      id: id,
+      email: email,
+      name: name,
+      username: username,
+      password: password,
+    };
+
+    await axios
+      .post("https://rental-house-server.vercel.app/users", form_data)
       .then((response) => {
-        console.log("response >>>", response);
-        JSON.stringify(response);
+        setLoading(false);
+
+        response.data();
+      })
+      .then((result) => {
+        JSON.stringify(result);
+        console.log("response >>>", result);
       })
       .catch((error) => {
         setLoading(false);
-
-        if (password !== confirmpassword) {
-          setError("Passwords do not match !");
-        }
-
+        setError("Something is wrong. Try again later !");
         console.log(error);
       });
+
+    props.history.push("/Home");
   };
 
   return (
@@ -45,12 +58,12 @@ const SignUp = () => {
             <div className="card">
               <h2 className="card-title text-center">Register</h2>
               <div className="card-body py-md-4">
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div className="form-group">
                     <input
                       type="integers"
                       className="form-control"
-                      name={id}
+                      name="id"
                       onChange={(e) => setId(e.target.value)}
                       placeholder="Enter Your ID Number"
                     />
@@ -59,7 +72,7 @@ const SignUp = () => {
                     <input
                       type="text"
                       className="form-control"
-                      name={name}
+                      name="name"
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Enter Your Names"
                     />
@@ -68,7 +81,7 @@ const SignUp = () => {
                     <input
                       type="text"
                       className="form-control"
-                      name={username}
+                      name="username"
                       onChange={(e) => setUsername(e.target.value)}
                       placeholder="Enter Your username"
                     />
@@ -77,7 +90,7 @@ const SignUp = () => {
                     <input
                       type="email"
                       className="form-control"
-                      name={email}
+                      name="email"
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter Your Email"
                     />
@@ -87,20 +100,12 @@ const SignUp = () => {
                     <input
                       type="password"
                       className="form-control"
-                      name={password}
+                      name="password"
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Password"
                     />
                   </div>
-                  <div className="form-group">
-                    <input
-                      type="password"
-                      className="form-control"
-                      name={confirmpassword}
-                      onChange={(e) => setConfirmPassword(e.target.value)}
-                      placeholder="confirm-password"
-                    />
-                  </div>
+
                   {error && (
                     <>
                       <small style={{ color: "red" }}>{error}</small>
@@ -112,13 +117,12 @@ const SignUp = () => {
                     <input
                       type="submit"
                       value={loading ? "Loading..." : "CREATE"}
-                      onSubmit={handleSubmit}
                       disabled={loading}
                       className="btn btn-primary m-3"
                     />
 
                     <button className="btn btn-primary">
-                      <a href="/Login">LOGIN</a>
+                      <a href="/">Cancel</a>
                     </button>
                   </div>
                 </form>
@@ -130,4 +134,4 @@ const SignUp = () => {
     </div>
   );
 };
-export default SignUp;
+export default withRouter(SignUp);
