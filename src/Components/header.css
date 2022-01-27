@@ -1,8 +1,10 @@
 .header-blue {
-  background: linear-gradient(135deg, #172a74, #21a9af);
+  background: linear-gradient(135deg, #012629, #21a9af);
   background-color: #184e8e;
   padding-bottom: 80px;
   font-family: "Source Sans Pro", sans-serif;
+  margin: 0;
+  color: white;
 }
 
 @media (min-width: 768px) {
@@ -19,6 +21,7 @@
   border-radius: 0;
   box-shadow: none;
   border: none;
+  margin-bottom: 20px;
 }
 
 @media (min-width: 768px) {
@@ -110,13 +113,14 @@
 .header-blue .action-button:not(.disabled):active {
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 40px;
-  color: #ebeff1;
+  color: #fff;
   box-shadow: none;
   text-shadow: none;
   padding: 0.3rem 0.8rem;
   background: transparent;
   transition: background-color 0.25s;
   outline: none;
+  text-decoration: none;
 }
 
 .header-blue .action-button:hover {
@@ -138,4 +142,9 @@
   box-shadow: none;
   color: inherit;
   transition: border-bottom-color 0.3s;
+}
+
+img {
+  width: 500px !important;
+  height: 600px !important;
 }

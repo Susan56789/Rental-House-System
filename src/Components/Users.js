@@ -46,7 +46,7 @@ const Users = () => {
             <div className="card-body">
               <table className="table-striped table-bordered col-md-12">
                 <thead>
-                  <tr>
+                  <tr className="col">
                     <th className="text-center">#</th>
                     <th className="text-center">Name</th>
                     <th className="text-center">Username</th>
@@ -55,56 +55,51 @@ const Users = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    {user.map((users) => (
-                      <>
-                        <td>{users.id}</td>
-                        <td>{users.name}</td>
-                        <td>{users.username}</td>
-                        <td>{users.email}</td>
+                  {user.map((users) => (
+                    <tr className="col">
+                      <td>{users.id}</td>
+                      <td>{users.name}</td>
+                      <td>{users.username}</td>
+                      <td>{users.email}</td>
 
-                        <td>
-                          <center>
-                            <div className="btn-group">
-                              <button
-                                type="button"
-                                className="btn btn-primary dropdown-toggle dropdown-toggle-split"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                              >
-                                Action
-                                <span className="sr-only">Toggle Dropdown</span>
-                              </button>
-                              <div className="dropdown-menu">
-                                <a
-                                  className="dropdown-item edit_user"
-                                  href="Edit"
-                                  data-id=""
-                                >
-                                  Edit
-                                </a>
-                                <div className="dropdown-divider"></div>
-                                <a
-                                  className="dropdown-item delete_user"
-                                  href="Delete"
-                                  data-id=""
-                                >
-                                  Delete
-                                </a>
-                              </div>
-                            </div>
+                      <td>
+                        <center>
+                          <div className="btn-group">
                             <button
                               type="button"
-                              className="btn btn-primary m-3"
+                              className="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                              data-bs-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
                             >
-                              <a href="/Home">Back</a>
+                              Action
+                              <span className="sr-only">Toggle Dropdown</span>
                             </button>
-                          </center>
-                        </td>
-                      </>
-                    ))}
-                  </tr>
+                            <div className="dropdown-menu">
+                              <a
+                                className="dropdown-item edit_user"
+                                href="Edit"
+                                data-id=""
+                              >
+                                Edit
+                              </a>
+                              <div className="dropdown-divider"></div>
+                              <a
+                                className="dropdown-item delete_user"
+                                href="Delete"
+                                data-id=""
+                              >
+                                Delete
+                              </a>
+                            </div>
+                          </div>
+                          <button type="button" className="btn btn-primary m-3">
+                            <a href="/Home">Back</a>
+                          </button>
+                        </center>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
