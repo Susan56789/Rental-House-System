@@ -49,6 +49,11 @@ const Tenants = () => {
                     </a>
                   </span>
                 </div>
+                <div className="d-flex flex-row align-items-center justify-content-between">
+                  <a href="/Home" className="btn btn-primary m-3">
+                    <i className="fas fa-arrow-left"></i>
+                  </a>
+                </div>
                 <div className="card-body">
                   <table className="table table-bordered ">
                     <thead>

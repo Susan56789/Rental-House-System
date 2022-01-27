@@ -4,6 +4,11 @@ export default class PaymentReport extends Component {
   render() {
     return (
       <div>
+        <div className="d-flex flex-row align-items-center justify-content-between">
+          <a href="/Home" className="btn btn-primary m-3">
+            <i className="fas fa-arrow-left"></i>
+          </a>
+        </div>
         <div class="container-fluid">
           <div class="col-lg-12">
             <div class="card">

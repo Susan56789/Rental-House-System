@@ -5,6 +5,11 @@ export default class Settings extends Component {
   render() {
     return (
       <>
+        <div className="d-flex flex-row align-items-center justify-content-between">
+          <a href="/Home" className="btn btn-primary m-3">
+            <i className="fas fa-arrow-left"></i>
+          </a>
+        </div>
         <div className="container-fluid">
           <div className="card col-lg-12">
             <div className="card-body">
