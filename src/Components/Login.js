@@ -94,7 +94,7 @@ const Login = (props) => {
                   <div className="col-lg-6 login-btm login-button"></div>
                   <div className="col-lg-6 login-btm login-button">
                     <button className="btn btn-outline-primary m-3">
-                      <a href="/">HOME</a>
+                      <a href="/SignUp">SIGN UP</a>
                     </button>
                   </div>
                 </div>

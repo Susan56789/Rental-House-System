@@ -15,13 +15,12 @@ const SignUp = (props) => {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
-    alert("Registration Successful! Proceed to Log in.");
     e.preventDefault();
     setError(null);
     setLoading(true);
 
     await axios
-      .post("https://rental-house-server.vercel.app/users", {
+      .post("https://rental-house-server.vercel.app/user/signup", {
         id: id,
         name: name,
         username: username,
@@ -40,14 +39,21 @@ const SignUp = (props) => {
 
         console.log("response >>>", result);
         console.log(result.data);
+
+        alert("Registration Successful! Proceed to Log in.");
+
+        props.history.push("/Home");
       })
       .catch((error) => {
         setLoading(false);
-        setError("Something is wrong. Try again later !");
+        if (error.response.status === 400 || error.response.status === 401) {
+          setError(error.response.data.message);
+        } else {
+          setError("Something is wrong. Please try again later !");
+        }
+
         console.log(error);
       });
-
-    props.history.push("/Home");
   };
 
   return (
@@ -122,7 +128,7 @@ const SignUp = (props) => {
                     />
 
                     <button className="btn btn-primary">
-                      <a href="/">Cancel</a>
+                      <a href="/">HOME</a>
                     </button>
                   </div>
                 </form>

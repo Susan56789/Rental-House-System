@@ -61,7 +61,7 @@ const Users = () => {
                 </thead>
                 <tbody>
                   {user.map((users) => (
-                    <tr className="col">
+                    <tr className="col" key={Math.floor(Math.random() * 1000)}>
                       <td>{users.id}</td>
                       <td>{users.name}</td>
                       <td>{users.username}</td>
@@ -98,6 +98,7 @@ const Users = () => {
                               </a>
                             </div>
                           </div>
+
                           <button type="button" className="btn btn-primary m-3">
                             <a href="/Home">Back</a>
                           </button>

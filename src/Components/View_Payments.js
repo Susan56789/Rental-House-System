@@ -40,9 +40,8 @@ const ViewPayments = () => {
             <div className="row">
               <div className="col-md-4 mb-2">
                 <div id="details">
-                  <large>
-                    <b>Details</b>
-                  </large>
+                  <b>Details</b>
+
                   <hr />
                   <p>
                     Tenant: <b>{tenants.firstname + " " + tenants.lastname}</b>
@@ -77,9 +76,8 @@ const ViewPayments = () => {
                 </div>
               </div>
               <div className="col-md-8">
-                <large>
-                  <b>Payment List</b>
-                </large>
+                <b>Payment List</b>
+
                 <hr />
                 <table className="table table-condensed table-striped">
                   <thead>
@@ -90,7 +88,7 @@ const ViewPayments = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="col">
+                    <tr className="col" key={Math.floor(Math.random() * 1000)}>
                       <td>{tenants.last_payment}</td>
                       <td>{tenants.invoice}</td>
                       <td className="text-right">{tenants.monthly_rate}</td>

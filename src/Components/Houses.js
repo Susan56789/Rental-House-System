@@ -35,7 +35,7 @@ const House = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           return data;
         });
       SetCategory(response);
@@ -148,8 +148,8 @@ const House = () => {
                       </thead>
                       <tbody>
                         {house.map((houses) => (
-                          <tr className="col">
-                            <td className="" key={Math.random() * 10000}>
+                          <tr className="col" key={Math.random() * 10000}>
+                            <td className="">
                               <p>
                                 House #: <b>{houses.id}</b>
                               </p>

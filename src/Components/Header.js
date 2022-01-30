@@ -24,13 +24,13 @@ export default class Header extends Component {
                 <ul className="nav navbar-nav">
                   <li className="nav-item" role="presentation">
                     <a className="nav-link active" href="##">
-                      Link
+                      Links
                     </a>
                   </li>
                 </ul>
                 <form className="form-inline mr-auto" target="_self">
                   <div className="form-group">
-                    <label for="search-field">
+                    <label>
                       <i className="fa fa-search"></i>
                     </label>
                     <input

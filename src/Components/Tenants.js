@@ -14,7 +14,7 @@ const Tenants = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          //console.log(data);
           return data;
         });
       setTenant(response);
@@ -74,7 +74,10 @@ const Tenants = () => {
 
                     <tbody>
                       {tenant.map((tenants) => (
-                        <tr className="col">
+                        <tr
+                          className="col"
+                          key={Math.floor(Math.random() * 1000)}
+                        >
                           <td>{tenants.id}</td>
                           <td>{tenants.firstname}</td>
                           <td>{tenants.lastname}</td>
